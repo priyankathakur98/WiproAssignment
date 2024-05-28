@@ -16,21 +16,21 @@ public class JdbcProducts {
         Statement st = con.createStatement();
 
         // Step 4: Create table if not exists
-        st.executeUpdate("CREATE TABLE IF NOT EXISTS PRODUCTS (PROD_ID NUMBER(20) PRIMARY KEY, NAME VARCHAR(50) NOT NULL, PRICE NUMBER)");
+        //st.executeQuery("CREATE TABLE PRODUCTS (PROD_ID NUMBER(20) PRIMARY KEY, NAME VARCHAR(50) NOT NULL, QUANTITY NUMBER(5) CHECK(QUANTITY>0))");
 
         // Inserting new products
-        st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (1, 'Laptop', 40000)");
-        st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (2, 'Cooler', 30000)");
-        st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (3, 'Heater', 2000)");
-        st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (4, 'Fridge', 25000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (1, 'Laptop', 40000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (2, 'Cooler', 30000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (3, 'Heater', 2000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (4, 'Fridge', 25000)");
 
-        System.out.println("Inserted Successfully");
+        //System.out.println("Inserted Successfully");
 
         // Updating a product
-        st.executeUpdate("UPDATE PRODUCTS SET PRICE = 60000 WHERE PROD_ID = 4");
+        //st.executeUpdate("UPDATE PRODUCTS SET QUANTITY = 60000 WHERE PROD_ID = 4");
 
         // Deleting a product
-        st.executeUpdate("DELETE FROM PRODUCTS WHERE PROD_ID = 2");
+        //st.executeUpdate("DELETE FROM PRODUCTS WHERE PROD_ID = 2");
 
         // Executing a query to retrieve data
         ResultSet rs = st.executeQuery("SELECT * FROM PRODUCTS");
@@ -44,7 +44,7 @@ public class JdbcProducts {
 
         // Printing the result set data
         while (rs.next()) {
-            System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getDouble(3));
+            System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
         }
 
         // Closing the resources
