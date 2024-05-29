@@ -19,10 +19,10 @@ public class JdbcProducts {
         //st.executeQuery("CREATE TABLE PRODUCTS (PROD_ID NUMBER(20) PRIMARY KEY, NAME VARCHAR(50) NOT NULL, QUANTITY NUMBER(5) CHECK(QUANTITY>0))");
 
         // Inserting new products
-        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (1, 'Laptop', 40000)");
-        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (2, 'Cooler', 30000)");
-        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (3, 'Heater', 2000)");
-        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, PRICE) VALUES (4, 'Fridge', 25000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, QUANTITY) VALUES (1, 'Laptop', 40000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, QUANTITY) VALUES (2, 'Cooler', 30000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, QUANTITY) VALUES (3, 'Heater', 2000)");
+        //st.executeUpdate("INSERT INTO PRODUCTS (PROD_ID, NAME, QUANTITY) VALUES (4, 'Fridge', 25000)");
 
         //System.out.println("Inserted Successfully");
 
