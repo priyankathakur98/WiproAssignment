@@ -1,0 +1,74 @@
+version: '3.9'
+services:
+  producer:
+    container_name: producer_container
+    #image: thakurpriyanka262:producer-service
+    image:  thakurpriyanka262/producer-service
+    #build: ./producer-service
+    tty: true
+    
+    #ports:
+      #- "8081:8081"
+    restart: always
+    depends_on:
+      #- config-service
+      - gateway
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://els-service:8761/eureka 
+  
+  consumer:
+    #image:  thakurpriyanka262:consumer-service
+    image:  thakurpriyanka262/consumer-service
+    #build: ./consumer-service
+    tty: true
+    container_name: consumer-container
+    ports:
+      - "8082:8082"
+    restart: always
+    depends_on:
+      #- config-service
+      #- gateway
+      - producer
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://els-service:8761/eureka 
+        
+  gateway:
+    #image:  thakurpriyanka262:gateway-service
+    image:  thakurpriyanka262/gateway-service
+    #build: ./gateway-service
+    tty: true
+    container_name: gateway-container
+    ports:
+      - "8085:8085"
+    restart: always
+    depends_on:
+      #- config-service
+      - els-service
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://els-service:8761/eureka 
+
+
+  els-service:
+    #image:  thakurpriyanka262:eureka-service
+    image:  thakurpriyanka262/eureka-service
+    #build: ./eureka-service
+    tty: true
+    container_name: eureka-container
+    ports:
+      - "8761:8761"
+    restart: always
+    depends_on:
+      - config-service
+    
+  config-service:
+    #image:  thakurpriyanka262:eureka-service
+    image:  thakurpriyanka262/config-service
+    #build: ./config-service
+    tty: true
+    container_name: config-container
+    ports:
+      - "8888:8888"
+    restart: always
+
+
+
